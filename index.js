@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 // custom imports
 const promptData = require('./promptData');
+const testData = require('./testData');
 
 // assign answers to object
 const assignData = (data) => {
