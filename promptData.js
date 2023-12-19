@@ -1,25 +1,3 @@
-/*
- *  prompts: "Enter Your Name:"
-            "Enter profile photo"
- *          "Enter your 'about me' section"
- *          "Enter your 3 favorite Hex Color Codes" // prompt this for each color code in descending order of favorites
- *          "Enter your github url"
- *          "Enter your linked in"
- *          "Enter your email"
- *          "Enter your Primary Project Name"
- *          "Primary project description"
- *          "Primary project screenshot url"
- *          "Primary project repo url"
- *          "Enter your Secondary Project Name"
- *          "Secondary project description"
- *          "Secondary project screenshot url"
- *          "Secondary project repo url"
- *          "Enter your Tertiary Project Name"
- *          "Tertiary project description"
- *          "Tertiary project screenshot url"
- *          "Tertiary project repo url"
-*/ 
-
 const colorArray = [
     // how do I want the colors to be chosen? I could create a list of options, then choose checkbox
     // Or I could take a single hex code input then write an algorithm to automatically choose 3 shades of the chosen color
@@ -39,6 +17,11 @@ const promptArray = [
         type: "input",
         name: "aboutMe",
         message: "Enter your 'about me' description:\n"
+    },
+    {
+        type: "input",
+        name: "jobTitle",
+        message: "Enter your current Profession / Job Title:\n"
     },
     {
         type: "input",

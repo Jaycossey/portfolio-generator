@@ -1,6 +1,7 @@
 const testData = {
     userName: 'Ian',
     aboutMe: 'This is generic test data',
+    jobTitle: 'JavaScript Developer',
     profilePhoto: 'url/example/data',
     email: 'jaycossey@live.com',
     github: 'https://github.com/Jaycossey',
