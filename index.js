@@ -24,4 +24,5 @@ const runPrompts = () => {
         });
 };
 
-runPrompts();
+// runPrompts();
+assignData(testData);
