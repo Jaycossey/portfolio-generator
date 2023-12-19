@@ -6,10 +6,19 @@ const fs = require('fs');
 // custom imports
 const promptData = require('./promptData');
 const testData = require('./testData');
+const generateHTML = require('./generatorFiles/htmlGen');
 
 // assign answers to object
 const assignData = (data) => {
-    console.log(data);
+    // console.log(data);
+    const htmlStruct = generateHTML(data.userName, data.jobTitle);
+    fs.writeFile(`${data.userName}.html`, htmlStruct, (err) => {
+        if(!err) {
+            console.log("SUCCESS!, Your files are in the local directory");
+        } else {
+            console.error(err);
+        }
+    })
 };
 
 // prompt user for data
