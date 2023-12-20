@@ -141,4 +141,4 @@ const promptArray = [
 ];
 
 // export prompts
-module.exports = (promptArray, colorArray);
+module.exports = promptArray;

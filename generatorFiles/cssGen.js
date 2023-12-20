@@ -1,7 +1,7 @@
 // setup template for CSS file and styles
 // this CSS file, will target all styles 
 // the document is structured in a single parent 'root' div
-const colorArray = require('../generatorData/promptData');
+// const colorArray = require('../generatorData/promptData');
 
 // assign current hex code color
 const assignHex = (color) => {
@@ -34,6 +34,11 @@ const assignShades = (currentHex) => {
     console.log(dupeHex);
     console.log(len);
 
+    /**
+     * THIS IS WHERE BUG 1 is, basically dupeHex is a string, so .length should work
+     * but the calculations would require type int - write console logs for each step and figure out why this
+     * isnt working correctly. 
+     */
     // loop through the text
     for (let i = 0; i < len; i += 2) {
         console.log("tick", i);
