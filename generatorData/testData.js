@@ -3,6 +3,7 @@ const testData = {
     aboutMe: 'This is generic test data',
     jobTitle: 'JavaScript Developer',
     profilePhoto: 'url/example/data',
+    colorScheme: 'red',
     email: 'jaycossey@live.com',
     github: 'https://github.com/Jaycossey',
     linkedIn: 'https://www.linkedin.com/in/ian-j-scott/',
