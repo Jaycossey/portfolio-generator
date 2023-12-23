@@ -3,7 +3,7 @@
 // dependency references
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
+// const path = require('path');
 
 // custom imports
 const promptData = require('./generatorData/promptData');
