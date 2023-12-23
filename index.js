@@ -15,12 +15,9 @@ const generateScript = require('./generatorFiles/scriptGen');
 // FUNCTION DECLARATIONS -------------------------------------------------------------------
 
 // create files
-const createFiles = (html, css, script, directory) => {
-    // create array to store values
-    const fileArray = [html, css, script];
-    
+const createFiles = (html, css, script, directory) => {    
     // create directory
-    fs.mkdir(path.join('/', `${directory}`), (err) => {
+    fs.mkdir(`${directory}`, (err) => {
         if (err) {
             // if error then log error
             console.error(err);
@@ -28,7 +25,7 @@ const createFiles = (html, css, script, directory) => {
         } else {
             console.log("Directory created");
             // write files
-            fs.writeFile(`/${directory}/index.html`, fileArray[0], (err) => {
+            fs.writeFile(`./${directory}/index.html`, html, (err) => { // THIS HTML FUNCTION RUNS CORRECTLY!!!!!!
                 if (!err) {
                     // log success
                     console.log("SUCCESS! Your HTML is written to the new directory!");
@@ -36,14 +33,14 @@ const createFiles = (html, css, script, directory) => {
                     console.log("HTML:", err);
                 }
             });
-            fs.writeFile(`/${directory}/styles.css`, fileArray[1], (err) => {
+            fs.writeFile(`./${directory}/styles.css`, css, (err) => {
                 if (!err) {
                     console.log("SUCCESS! Your CSS is written to the new directory!");
                 } else {
                     console.log("CSS:", err);
                 }
             });
-            fs.writeFile(`/${directory}/scripts.js`, fileArray[2], (err) => {
+            fs.writeFile(`./${directory}/scripts.js`, script, (err) => { // THIS SCRIPT GENERATION WORKS CORRECTLY>>>>> NEED TO STRUCTURE IT CORRECTLY AS WELL
                 if (!err) {
                     console.log("SUCCESS! Your Script is written to the new directory!");
                 } else {
@@ -63,6 +60,7 @@ const assignData = (data) => {
     console.log("cssStart");
     // create css structure
     const cssStruct = generateCSS(data.colorScheme);
+
     console.log("jsStart");
     // create JS structure 
     const jsStruct = generateScript(data);
