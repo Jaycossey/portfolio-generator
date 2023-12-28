@@ -5,7 +5,7 @@ const generateHTML = (name, job) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian - JavaScript Developer</title>
+    <title>${name} - ${job}</title>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">

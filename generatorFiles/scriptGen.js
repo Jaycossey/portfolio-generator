@@ -8,9 +8,11 @@ const scriptGen = (data) => {
 const ROOT_DIV = document.getElementById('root');
 const CONTACT_LINKS = ["${data.github}", "${data.linkedIn}", "${data.email}"];
 const PROJECT_TITLES = ["${data.primaryName}", "${data.secondaryName}", "${data.tertiaryName}"];
-const PROJECT_IMAGES = [];
 const PROJECT_DESCRIPTIONS = ["${data.primaryDescription}", "${data.secondaryDescription}", "${data.tertiaryDescription}"];
 const PROJECT_LINKS = ["${data.primaryUrl}", "${data.secondaryUrl}", "${data.tertiaryUrl}"];
+
+// IMAGE ARRAY
+const PROJECT_IMAGES = ["./images/project1.png", "./images.project2.png", "./images/project3.png"]; // NOTE: Project image pathing is here, edit as needed.
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -19,14 +21,15 @@ const profile = () => {
 
     const nameJobEl = document.createElement('h1');
     nameJobEl.className = "titleName";
-    nameJobEl.innerText = "${data.userName} - ${data.jobTitle}"; // THIS WILL NEED CHANGE
+    nameJobEl.innerText = "${data.userName} - ${data.jobTitle}";
 
     const profilePic = document.createElement('img');
     profilePic.classList = "profileImg";
-    profilePic.alt = "Profile Picture of ${data.userName}"; // THIS WILL NEED CHANGE
+    profilePic.backgroundImage = "./images/profile.png";            // NOTE: This is the input for profile photo, rename file to match or edit here. 
+    profilePic.alt = "Profile Picture of ${data.userName}";
 
     const aboutText = document.createElement('p');
-    aboutText.innerText = "${data.aboutMe}"; // THIS WILL NEED CHANGE
+    aboutText.innerText = "${data.aboutMe}";
 
     const otherInfo = document.createElement('p');
     otherInfo.innerText = "${data.otherInformation}";
@@ -54,7 +57,8 @@ const generateCard = (parent, rank) => {
     titleDiv.innerText = PROJECT_TITLES[rank];
 
     const screenGrabDiv = createDiv('image');
-    // NEED TO ADD IN IMAGE TEMPLATES HERE ---------------!!!!!!
+    screenGrabDiv.backgroundImage = PROJECT_IMAGES[rank];
+
     const textDiv = createDiv('text');
     textDiv.innerText = PROJECT_DESCRIPTIONS[rank];
     

@@ -7,7 +7,6 @@ const fs = require('fs');
 
 // custom imports
 const promptData = require('./generatorData/promptData');
-const testData = require('./generatorData/testData');
 const generateHTML = require('./generatorFiles/htmlGen');
 const generateCSS = require('./generatorFiles/cssGen');
 const generateScript = require('./generatorFiles/scriptGen');
@@ -23,7 +22,12 @@ const createFiles = (html, css, script, directory) => {
             console.error(err);
             return;
         } else {
-            console.log("Directory created");
+            // create file for images
+            fs.mkdir(`${directory}/images`, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+            })
             // write files
             fs.writeFile(`./${directory}/index.html`, html, (err) => { // THIS HTML FUNCTION RUNS CORRECTLY!!!!!!
                 if (!err) {
@@ -49,28 +53,23 @@ const createFiles = (html, css, script, directory) => {
             });
         }
     })
-
+    console.log(`Remember to add your project and profile images into the newly created 'images' directory!\nImages are linked in the new JS file.\n`);
 }
 
 // assign answers to object
 const assignData = (data) => {
-    console.log("htmlStart");
     // create a html structure
     const htmlStruct = generateHTML(data.userName, data.jobTitle);
-    console.log("cssStart");
+
     // create css structure
     const cssStruct = generateCSS(data.colorScheme);
 
-    console.log("jsStart");
     // create JS structure 
     const jsStruct = generateScript(data);
-
-    console.log("structures created");
 
     // call filecreation
     createFiles(htmlStruct, cssStruct, jsStruct, data.userName);
 
-    console.log("SUCCESS! ALL FILES CREATED SUCCESSFULLY!");
 };
 
 // prompt user for data
@@ -87,5 +86,4 @@ const runPrompts = () => {
         });
 };
 
-// runPrompts();
-assignData(testData);
+runPrompts();
