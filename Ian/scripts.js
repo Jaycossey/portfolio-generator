@@ -3,16 +3,6 @@ const ROOT_DIV = document.getElementById('root');
 
 // PROFILE CONTAINER 
 const profile = () => {
-    // This section needs a container to handle an intro section
-    // I need a parent div,
-    // H1 with name and job title
-    // p element with the about me text 
-    // p element with other information on why I chose these
-    // projects
-    //
-    // Use standard DOM manip, this section will be changing very
-    // little in generation, ie - less data to handle and linear
-
     const parentDiv = document.createElement('div');
     parentDiv.className = "aboutCont";
 
@@ -35,7 +25,7 @@ console.log("Test Linked");
 document.onload = profile();
 
 
-// PROJECT CONTAINER >
+// PROJECT CONTAINER 
 const createDiv = (type) => {
     const div = document.createElement('div');
     div.className = type;
@@ -43,8 +33,10 @@ const createDiv = (type) => {
     return div;
 }
 
-const generateCard = (parent) => {
+// card generator
+const generateCard = (parent, rank) => {
     const card = createDiv('card');
+    card.id = "presentation" + rank;
 
     const titleDiv = createDiv('title');
     const screenGrabDiv = createDiv('image');
@@ -56,22 +48,20 @@ const generateCard = (parent) => {
     parent.append(card);
 }
 
-const createProfile = () => {
+// portfolio creation
+const createPortfolio = () => {
     const sectionDiv = createDiv('section');
+    sectionDiv.className = "portfolio";
     
     for (let i = 0; i < 3; i++) {
-        const card = generateCard(sectionDiv);
-        sectionDiv.append(card);
+        generateCard(sectionDiv, i);
     }
 
     ROOT_DIV.append(sectionDiv);
 }
 
-document.onload = createProfile();
+document.onload = createPortfolio();
 
-// CREATE CARDS, USE DOM FOR ALL, the MVP is a portfolio site, 
-// not anything too fancy within, the previews wont be anything 
-// ott
 
 const otherInfo = () => {
 

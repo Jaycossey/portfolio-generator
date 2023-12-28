@@ -11,7 +11,7 @@ body {
     font-family: monospace;
 }
 
-/* PROFILE STYLES ------------------------ */
+/* PROFILE STYLES --------------------------------- */
 
 .aboutCont {
     border: 8px outset white;
@@ -41,8 +41,67 @@ div {
     display: grid;
 }
 
+
+/* PORTFOLIO STYLES ------------------------------ */
+
+.portfolio {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+        'main main'
+        'second third';
+    grid-template-rows: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: center; */
+}
+
+.portfolio > .card:first-child {
+    grid-area: main;
+    height: 100%;
+}
+
+.portfolio > .card:nth-child(2) {
+    grid-area: second;
+}
+
+.portfolio > .card:nth-child(3) {
+    grid-area: third;
+}
+
+
 .card {
-    width: 90%;
     height: 200px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
+}
+
+.title {
+    height: 40px;
+    border-radius: 10px;
+}
+
+.image {
+    border: 2px solid black;
+    height: 50%;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.text {
+    font-size: 1rem;
+}
+
+.url {
+
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+a:active {
+
+}
+
+a:visited {
+
 }
