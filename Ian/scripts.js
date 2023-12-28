@@ -1,5 +1,5 @@
 
-// GLOBALS ---------------------------------------
+// GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
 
 // PROFILE CONTAINER 
@@ -22,11 +22,9 @@ parentDiv.append(nameJobEl, profilePic, aboutText);
 
 ROOT_DIV.append(parentDiv);
 }
-console.log("Test Linked");
-document.onload = profile();
 
 
-// PROJECT CONTAINER 
+// PROJECT CONTAINER ----------------------------------------
 const createDiv = (type) => {
 const div = document.createElement('div');
 div.className = type;
@@ -61,10 +59,13 @@ for (let i = 0; i < 3; i++) {
 ROOT_DIV.append(sectionDiv);
 }
 
-document.onload = createPortfolio();
 
 
+// FOOTER CONTAINER ----------------------------------------
 const otherInfo = () => {
-
+    const footer = createDiv('footer');
+    ROOT_DIV.append(footer);
 }
-    
+profile();
+createPortfolio();
+otherInfo();

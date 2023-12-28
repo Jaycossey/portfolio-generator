@@ -11,7 +11,7 @@ body {
     text-align: center;
     background-color: var(--bg-color);
     color: var(--font-color);
-    padding: 50px;
+    padding: 10px;
     font-family: monospace;
 }
 
@@ -19,6 +19,7 @@ body {
 
 .aboutCont {
     border: 8px outset var(--border-color);
+    border-radius: 10px;
     height: 200px;
     padding: 2px;
     display: flex;
@@ -37,7 +38,8 @@ body {
 }
 
 div {
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
 }
 
 .section {
@@ -70,7 +72,6 @@ div {
 .portfolio > .card:nth-child(3) {
     grid-area: third;
 }
-
 
 .card {
     height: 200px;
@@ -107,3 +108,23 @@ a:active {
 a:visited {
 
 } 
+
+
+/* FOOTER STYLES ----------------------------------- */
+.footer {
+    border: 2px solid black;
+    height: 100px;
+    margin-top: 20px;
+}
+
+/* MEDIA QUERIES ----------------------------------- */
+@media (width > 320px) and (width < 1000px) {
+    .portfolio {
+        grid-template-areas: 
+            'main'
+            'second'
+            'third';
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr 1fr;
+    }
+}
