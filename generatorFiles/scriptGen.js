@@ -4,9 +4,9 @@ const scriptGen = (data) => {
     const {} = data;
     // TEST FUNCTIONALITY AND ASSIGN VARIABLES HERE!!!!
     return `
-
 // GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
+const CONTACT_LINKS = ["https://github.com/Jaycossey", "https://www.linkedin.com/in/ian-j-scott/", "mailto:jaycossey@live.com"];
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -75,10 +75,23 @@ const createPortfolio = () => {
 
 
 // FOOTER CONTAINER ----------------------------------------
-const otherInfo = () => {
+const contact = () => {
+    let i = 0;
     const footer = createDiv('footer');
 
-    
+    const iconArr = ['<i class="fa-brands fa-github"></i>', '<i class="fa-brands fa-linkedin"></i>', '<i class="fa-solid fa-envelope"></i>'];
+
+    iconArr.forEach((element) => {
+        const aEl = document.createElement('a');
+        aEl.classList = "iconAnchor";
+        aEl.innerHTML = element;
+        aEl.href = CONTACT_LINKS[i];
+        aEl.target = "_blank";
+        aEl.rel = "noopener noreferrer";
+        aEl.setAttribute('crossorigin', 'anonymous');
+        footer.append(aEl);
+        i++;
+    });
 
     ROOT_DIV.append(footer);
 }
@@ -86,7 +99,8 @@ const otherInfo = () => {
 
 profile();
 createPortfolio();
-otherInfo();
+contact();
+        
     `
 };
 

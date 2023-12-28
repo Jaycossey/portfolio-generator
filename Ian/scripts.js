@@ -2,6 +2,7 @@
 
 // GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
+const CONTACT_LINKS = ["https://github.com/Jaycossey", "https://www.linkedin.com/in/ian-j-scott/", "mailto:jaycossey@live.com"];
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -71,6 +72,7 @@ const createPortfolio = () => {
 
 // FOOTER CONTAINER ----------------------------------------
 const contact = () => {
+    let i = 0;
     const footer = createDiv('footer');
 
     const iconArr = ['<i class="fa-brands fa-github"></i>', '<i class="fa-brands fa-linkedin"></i>', '<i class="fa-solid fa-envelope"></i>'];
@@ -79,7 +81,12 @@ const contact = () => {
         const aEl = document.createElement('a');
         aEl.classList = "iconAnchor";
         aEl.innerHTML = element;
+        aEl.href = CONTACT_LINKS[i];
+        aEl.target = "_blank";
+        aEl.rel = "noopener noreferrer";
+        aEl.setAttribute('crossorigin', 'anonymous');
         footer.append(aEl);
+        i++;
     });
 
     ROOT_DIV.append(footer);
