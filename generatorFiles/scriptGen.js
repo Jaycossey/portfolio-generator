@@ -4,7 +4,111 @@ const scriptGen = (data) => {
     const {} = data;
     // TEST FUNCTIONALITY AND ASSIGN VARIABLES HERE!!!!
     return `
-console.log("Hello, ${data.userName}");
+// GLOBALS --------------------------------------------------
+const ROOT_DIV = document.getElementById('root');
+const CONTACT_LINKS = ["${data.github}", "${data.linkedIn}", "${data.email}"];
+const PROJECT_TITLES = ["${data.primaryName}", "${data.secondaryName}", "${data.tertiaryName}"];
+const PROJECT_IMAGES = [];
+const PROJECT_DESCRIPTIONS = ["${data.primaryDescription}", "${data.secondaryDescription}", "${data.tertiaryDescription}"];
+const PROJECT_LINKS = ["${data.primaryUrl}", "${data.secondaryUrl}", "${data.tertiaryUrl}"];
+
+// PROFILE CONTAINER 
+const profile = () => {
+    const parentDiv = document.createElement('div');
+    parentDiv.className = "aboutCont";
+
+    const nameJobEl = document.createElement('h1');
+    nameJobEl.className = "titleName";
+    nameJobEl.innerText = "${data.userName} - ${data.jobTitle}"; // THIS WILL NEED CHANGE
+
+    const profilePic = document.createElement('img');
+    profilePic.classList = "profileImg";
+    profilePic.alt = "Profile Picture of ${data.userName}"; // THIS WILL NEED CHANGE
+
+    const aboutText = document.createElement('p');
+    aboutText.innerText = "${data.aboutMe}"; // THIS WILL NEED CHANGE
+
+    const otherInfo = document.createElement('p');
+    otherInfo.innerText = "${data.otherInformation}";
+
+    parentDiv.append(nameJobEl, profilePic, aboutText);
+
+    ROOT_DIV.append(parentDiv);
+}
+
+
+// PROJECT CONTAINER ----------------------------------------
+const createDiv = (type) => {
+    const div = document.createElement('div');
+    div.className = type;
+
+    return div;
+}
+
+// card generator
+const generateCard = (parent, rank) => {
+    const card = createDiv('card');
+    card.id = "presentation" + rank;
+
+    const titleDiv = createDiv('title');
+    titleDiv.innerText = PROJECT_TITLES[rank];
+
+    const screenGrabDiv = createDiv('image');
+    // NEED TO ADD IN IMAGE TEMPLATES HERE ---------------!!!!!!
+    const textDiv = createDiv('text');
+    textDiv.innerText = PROJECT_DESCRIPTIONS[rank];
+    
+    const urlDiv = createDiv('url');
+    const anchor = document.createElement('a');
+    anchor.innerText = PROJECT_LINKS[rank];
+    urlDiv.append(anchor);
+
+    card.append(titleDiv, screenGrabDiv, textDiv, urlDiv);
+
+    parent.append(card);
+}
+
+// portfolio creation
+const createPortfolio = () => {
+    const sectionDiv = createDiv('section');
+    sectionDiv.className = "portfolio";
+
+    for (let i = 0; i < 3; i++) {
+        generateCard(sectionDiv, i);
+    }
+
+    ROOT_DIV.append(sectionDiv);
+}
+
+
+
+// FOOTER CONTAINER ----------------------------------------
+const contact = () => {
+    let i = 0;
+    const footer = createDiv('footer');
+
+    const iconArr = ['<i class="fa-brands fa-github"></i>', '<i class="fa-brands fa-linkedin"></i>', '<i class="fa-solid fa-envelope"></i>'];
+
+    iconArr.forEach((element) => {
+        const aEl = document.createElement('a');
+        aEl.classList = "iconAnchor";
+        aEl.innerHTML = element;
+        aEl.href = CONTACT_LINKS[i];
+        aEl.target = "_blank";
+        aEl.rel = "noopener noreferrer";
+        aEl.setAttribute('crossorigin', 'anonymous');
+        footer.append(aEl);
+        i++;
+    });
+
+    ROOT_DIV.append(footer);
+}
+
+
+profile();
+createPortfolio();
+contact();
+        
     `
 };
 
