@@ -1,36 +1,9 @@
-// assign current hex code color -- NEEDS A RETHINK!!!! HAVE THIS SET BACKGROUND COLOR THEN USE CARDS TO HANDLE THE REMAINING STYLES
-const assignHex = (color) => {
-    // designate rgba digits 
-    switch(color) {
-        case 'Green':
-            return '65, 174, 16';
-        case 'Red':
-            return '130, 13, 13';
-        case 'Purple':
-            return '144, 16, 174';
-        case 'Black':
-            return '0, 0, 0';
-        case 'White':
-            return '255, 255, 255';
-        case 'Yellow':
-            return '229, 176, 16';
-        case 'Blue':
-            return '17, 159, 204';
-        default:
-            return '173, 173, 173';
-    }
-}
 
-const cssGen = (color) => {
-    // handle custom color schemes with switch statement
-    const bgColor = assignHex(color);
-
-    return `
 :root {
-    --bg-color: rgba(${bgColor}, 0.1);
-    --card-color: rgba(${bgColor}, 0.6);
-    --border-color: rgba(${bgColor}, 0.4);
-    --font-color: rgba(${bgColor}, 1);
+    --bg-color: rgba(144, 16, 174, 0.1);
+    --card-color: rgba(144, 16, 174, 0.6);
+    --border-color: rgba(144, 16, 174, 0.4);
+    --font-color: rgba(144, 16, 174, 1);
 }
 
 body {
@@ -171,7 +144,4 @@ a:visited {
         grid-template-rows: 2fr 1fr 1fr;
     }
 } 
-    `
-}
-
-module.exports = cssGen;
+    
