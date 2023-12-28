@@ -6,7 +6,11 @@ const scriptGen = (data) => {
     return `
 // GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
-const CONTACT_LINKS = ["https://github.com/Jaycossey", "https://www.linkedin.com/in/ian-j-scott/", "mailto:jaycossey@live.com"];
+const CONTACT_LINKS = ["${data.github}", "${data.linkedIn}", "${data.email}"];
+const PROJECT_TITLES = ["${data.primaryName}", "${data.secondaryName}", "${data.tertiaryName}"];
+const PROJECT_IMAGES = [];
+const PROJECT_DESCRIPTIONS = ["${data.primaryDescription}", "${data.secondaryDescription}", "${data.tertiaryDescription}"];
+const PROJECT_LINKS = ["${data.primaryUrl}", "${data.secondaryUrl}", "${data.tertiaryUrl}"];
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -15,14 +19,17 @@ const profile = () => {
 
     const nameJobEl = document.createElement('h1');
     nameJobEl.className = "titleName";
-    nameJobEl.innerText = "Ian - Software Developer"; // THIS WILL NEED CHANGE
+    nameJobEl.innerText = "${data.userName} - ${data.jobTitle}"; // THIS WILL NEED CHANGE
 
     const profilePic = document.createElement('img');
     profilePic.classList = "profileImg";
-    profilePic.alt = "Profile Picture of <name></name>"; // THIS WILL NEED CHANGE
+    profilePic.alt = "Profile Picture of ${data.userName}"; // THIS WILL NEED CHANGE
 
     const aboutText = document.createElement('p');
-    aboutText.innerText = "Example Inner Text, change when generating" // THIS WILL NEED CHANGE
+    aboutText.innerText = "${data.aboutMe}"; // THIS WILL NEED CHANGE
+
+    const otherInfo = document.createElement('p');
+    otherInfo.innerText = "${data.otherInformation}";
 
     parentDiv.append(nameJobEl, profilePic, aboutText);
 
@@ -44,15 +51,16 @@ const generateCard = (parent, rank) => {
     card.id = "presentation" + rank;
 
     const titleDiv = createDiv('title');
-    titleDiv.innerText = "PROJECT TITLE";
+    titleDiv.innerText = PROJECT_TITLES[rank];
 
     const screenGrabDiv = createDiv('image');
+    // NEED TO ADD IN IMAGE TEMPLATES HERE ---------------!!!!!!
     const textDiv = createDiv('text');
-    textDiv.innerText = "PROJECT DESCRIPTION GOES HERE!!!!"
+    textDiv.innerText = PROJECT_DESCRIPTIONS[rank];
     
     const urlDiv = createDiv('url');
     const anchor = document.createElement('a');
-    anchor.innerText = "EXAMPLE.URL.COM";
+    anchor.innerText = PROJECT_LINKS[rank];
     urlDiv.append(anchor);
 
     card.append(titleDiv, screenGrabDiv, textDiv, urlDiv);

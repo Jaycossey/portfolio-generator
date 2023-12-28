@@ -110,6 +110,7 @@ div {
     border-radius: 10px;
     padding-top: 10px;
     font-size: 1.2rem;
+    
 }
 
 .image {

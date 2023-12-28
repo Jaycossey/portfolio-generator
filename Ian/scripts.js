@@ -1,8 +1,11 @@
 
-
 // GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
-const CONTACT_LINKS = ["https://github.com/Jaycossey", "https://www.linkedin.com/in/ian-j-scott/", "mailto:jaycossey@live.com"];
+const CONTACT_LINKS = ["https://github.com/Jaycossey", "https://www.linkedin.com/in/ian-j-scott/", "jaycossey@live.com"];
+const PROJECT_TITLES = ["README Generator", "Portfolio Generator", "P&L Tunes"];
+const PROJECT_IMAGES = [];
+const PROJECT_DESCRIPTIONS = ["JS program to help automate README generation.", "Node project to automate portfolio generation, showcasing a total of 3 projects for employers.", "Website for a music review company"];
+const PROJECT_LINKS = ["https://github.com/Jaycossey/readme-generator", "https://github.com/Jaycossey/portfolio-generator", "https://github.com/Jaycossey/pandl-reviews"];
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -11,14 +14,17 @@ const profile = () => {
 
     const nameJobEl = document.createElement('h1');
     nameJobEl.className = "titleName";
-    nameJobEl.innerText = "Ian - Software Developer"; // THIS WILL NEED CHANGE
+    nameJobEl.innerText = "Ian - JavaScript Developer"; // THIS WILL NEED CHANGE
 
     const profilePic = document.createElement('img');
     profilePic.classList = "profileImg";
-    profilePic.alt = "Profile Picture of <name></name>"; // THIS WILL NEED CHANGE
+    profilePic.alt = "Profile Picture of Ian"; // THIS WILL NEED CHANGE
 
     const aboutText = document.createElement('p');
-    aboutText.innerText = "Example Inner Text, change when generating" // THIS WILL NEED CHANGE
+    aboutText.innerText = "This is generic test data"; // THIS WILL NEED CHANGE
+
+    const otherInfo = document.createElement('p');
+    otherInfo.innerText = "This is test data, I want to speed up testing of this current project to aid my development.";
 
     parentDiv.append(nameJobEl, profilePic, aboutText);
 
@@ -40,15 +46,16 @@ const generateCard = (parent, rank) => {
     card.id = "presentation" + rank;
 
     const titleDiv = createDiv('title');
-    titleDiv.innerText = "PROJECT TITLE";
+    titleDiv.innerText = PROJECT_TITLES[rank];
 
     const screenGrabDiv = createDiv('image');
+    // NEED TO ADD IN IMAGE TEMPLATES HERE ---------------!!!!!!
     const textDiv = createDiv('text');
-    textDiv.innerText = "PROJECT DESCRIPTION GOES HERE!!!!"
+    textDiv.innerText = PROJECT_DESCRIPTIONS[rank];
     
     const urlDiv = createDiv('url');
     const anchor = document.createElement('a');
-    anchor.innerText = "EXAMPLE.URL.COM";
+    anchor.innerText = PROJECT_LINKS[rank];
     urlDiv.append(anchor);
 
     card.append(titleDiv, screenGrabDiv, textDiv, urlDiv);
@@ -96,4 +103,5 @@ const contact = () => {
 profile();
 createPortfolio();
 contact();
+        
     
