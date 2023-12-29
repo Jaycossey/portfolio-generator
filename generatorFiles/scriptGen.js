@@ -61,6 +61,9 @@ const generateCard = (parent, rank) => {
     const urlDiv = createDiv('url');
     const anchor = document.createElement('a');
     anchor.innerText = PROJECT_LINKS[rank];
+    anchor.href = PROJECT_LINKS[rank];
+    anchor.target = "_blank";
+    anchor.referrerPolicy = "noopener noreferrer";
     urlDiv.append(anchor);
 
     card.append(titleDiv, screenGrabDiv, textDiv, urlDiv);
