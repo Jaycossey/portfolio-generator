@@ -1,15 +1,10 @@
-// functions to handle js file writing (need to create a test template for this, planning is important)
 
-const scriptGen = (data) => {
-    const {} = data;
-    // TEST FUNCTIONALITY AND ASSIGN VARIABLES HERE!!!!
-    return `
 // GLOBALS --------------------------------------------------
 const ROOT_DIV = document.getElementById('root');
-const CONTACT_LINKS = ["${data.github}", "${data.linkedIn}", "${data.email}"];
-const PROJECT_TITLES = ["${data.primaryName}", "${data.secondaryName}", "${data.tertiaryName}"];
-const PROJECT_DESCRIPTIONS = ["${data.primaryDescription}", "${data.secondaryDescription}", "${data.tertiaryDescription}"];
-const PROJECT_LINKS = ["${data.primaryUrl}", "${data.secondaryUrl}", "${data.tertiaryUrl}"];
+const CONTACT_LINKS = ["github.com/Jaycossey", "linkedin.com/ian-j-scott", "jaycossey:live.com"];
+const PROJECT_TITLES = ["Portfolio Generator", "README Generator", "Police Interceptors"];
+const PROJECT_DESCRIPTIONS = ["Node project to handle portfolio generation with npm inquirer prompts.", "Node project to create and automate README.md file generation", "Group project which allows a user to search for crime data within a given area. Using the UK police data API."];
+const PROJECT_LINKS = ["https://github.com/Jaycossey/portfolio-generator", "https://github.com/Jaycossey/readme-generator", "https://github.com/Alan-Chumbley/Police-Interceptors"];
 
 // PROFILE CONTAINER 
 const profile = () => {
@@ -18,18 +13,18 @@ const profile = () => {
 
     const nameJobEl = document.createElement('h1');
     nameJobEl.className = "titleName";
-    nameJobEl.innerText = "${data.userName} - ${data.jobTitle}";
+    nameJobEl.innerText = "Ian - Software Developer";
 
     const profilePic = document.createElement('img');
     profilePic.classList = "profileImg";
     profilePic.src = "./images/profile.png";            // NOTE: This is the input for profile photo, rename file to match or edit here. 
-    profilePic.alt = "Profile Picture of ${data.userName}";
+    profilePic.alt = "Profile Picture of Ian";
 
     const aboutText = document.createElement('p');
-    aboutText.innerText = "${data.aboutMe}";
+    aboutText.innerText = "Software developer with 2 years experience within various languages. A focus on front end technologies such as Node.js, JavaScript, React, HTML, CSS, BootstrapCSS and TailwindCSS.";
 
     const otherInfo = document.createElement('p');
-    otherInfo.innerText = "${data.otherInformation}";
+    otherInfo.innerText = "I chose these projects to showcase my ability to handle data, automation and my teamwork skills. Each project had their own challenges as well as being invaluable learning experiences which I would be happy to discuss further through the contact links at the bottom of the screen.";
 
     parentDiv.append(nameJobEl, profilePic, aboutText);
 
@@ -108,8 +103,3 @@ const contact = () => {
 profile();
 createPortfolio();
 contact();
-        
-    `
-};
-
-module.exports = scriptGen;
