@@ -25,7 +25,7 @@ const profile = () => {
 
     const profilePic = document.createElement('img');
     profilePic.classList = "profileImg";
-    profilePic.backgroundImage = "./images/profile.png";            // NOTE: This is the input for profile photo, rename file to match or edit here. 
+    profilePic.src = "./images/profile.png";            // NOTE: This is the input for profile photo, rename file to match or edit here. 
     profilePic.alt = "Profile Picture of ${data.userName}";
 
     const aboutText = document.createElement('p');
