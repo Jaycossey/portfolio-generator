@@ -11,9 +11,6 @@ const PROJECT_TITLES = ["${data.primaryName}", "${data.secondaryName}", "${data.
 const PROJECT_DESCRIPTIONS = ["${data.primaryDescription}", "${data.secondaryDescription}", "${data.tertiaryDescription}"];
 const PROJECT_LINKS = ["${data.primaryUrl}", "${data.secondaryUrl}", "${data.tertiaryUrl}"];
 
-// IMAGE ARRAY
-const PROJECT_IMAGES = ["./images/project1.png", "./images.project2.png", "./images/project3.png"]; // NOTE: Project image pathing is here, edit as needed.
-
 // PROFILE CONTAINER 
 const profile = () => {
     const parentDiv = document.createElement('div');
@@ -57,7 +54,6 @@ const generateCard = (parent, rank) => {
     titleDiv.innerText = PROJECT_TITLES[rank];
 
     const screenGrabDiv = createDiv('image');
-    screenGrabDiv.backgroundImage = PROJECT_IMAGES[rank];
 
     const textDiv = createDiv('text');
     textDiv.innerText = PROJECT_DESCRIPTIONS[rank];

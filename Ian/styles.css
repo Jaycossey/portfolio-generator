@@ -91,6 +91,20 @@ div {
     height: 50%;
     margin: 5px;
     border-radius: 15px;
+    background-position: center;
+    background-size: cover;
+}
+
+#presentation0 > .image {
+    background-image: url('./images/project1.png');
+}
+
+#presentation1 > .image {
+    background-image: url('./images/project2.png');
+}
+
+#presentation2 > .image {
+    background-image: url('./images/project3.png');
 }
 
 .text {

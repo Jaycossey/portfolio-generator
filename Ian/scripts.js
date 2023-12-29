@@ -6,9 +6,6 @@ const PROJECT_TITLES = ["Portfolio Generator", "README Generator", "Police Inter
 const PROJECT_DESCRIPTIONS = ["Node project to handle portfolio generation with npm inquirer prompts.", "Node project to create and automate README.md file generation", "Group project which allows a user to search for crime data within a given area. Using the UK police data API."];
 const PROJECT_LINKS = ["https://github.com/Jaycossey/portfolio-generator", "https://github.com/Jaycossey/readme-generator", "https://github.com/Alan-Chumbley/Police-Interceptors"];
 
-// IMAGE ARRAY
-const PROJECT_IMAGES = ["./images/project1.png", "./images.project2.png", "./images/project3.png"]; // NOTE: Project image pathing is here, edit as needed.
-
 // PROFILE CONTAINER 
 const profile = () => {
     const parentDiv = document.createElement('div');
@@ -52,7 +49,6 @@ const generateCard = (parent, rank) => {
     titleDiv.innerText = PROJECT_TITLES[rank];
 
     const screenGrabDiv = createDiv('image');
-    screenGrabDiv.backgroundImage = PROJECT_IMAGES[rank];
 
     const textDiv = createDiv('text');
     textDiv.innerText = PROJECT_DESCRIPTIONS[rank];
@@ -107,5 +103,3 @@ const contact = () => {
 profile();
 createPortfolio();
 contact();
-        
-    

@@ -120,6 +120,18 @@ div {
     border-radius: 15px;
 }
 
+#presentation0 > .image {
+    background-image: url('./images/project1.png'); // EDIT AS NEEDED 
+}
+
+#presentation1 > .image {
+    background-image: url('./images/project2.png'); // EDIT AS NEEDED
+}
+
+#presentation2 > .image {
+    background-image: url('./images/project3.png'); // EDIT AS NEEDED
+}
+
 .text {
     padding: 2px;
     font-size: 1rem;
